@@ -12,9 +12,12 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
+
     private UserRepository userRepository;
 
+    public UserService(UserRepository userRepository){
+       this.userRepository = userRepository;
+    }
     /*read*/
     public List<UserDTO> listAll() {
         List<UserEntity> userEntities = userRepository.findAll();
@@ -31,12 +34,12 @@ public class UserService {
         return new UserDTO(userRepository.save(userEntity));
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         UserEntity userEntity = userRepository.findById(id).get();
         userRepository.delete(userEntity);
     }
 
-    public UserDTO findById(Long id){
+    public UserDTO findById(Long id) {
         return new UserDTO(userRepository.findById(id).get());
     }
 }

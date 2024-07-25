@@ -12,8 +12,12 @@ import java.util.List;
 @RequestMapping(value = "/users")
 public class UserController {
 
-    @Autowired
+
     private UserService userService;
+
+    private UserController(UserService userService){
+        this.userService = userService;
+    }
 
     @GetMapping
     public List<UserDTO> findAll() {
@@ -37,8 +41,7 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+    public void delete(@PathVariable("id") Long id) {
         userService.delete(id);
-        return ResponseEntity.ok().build();
     }
 }
