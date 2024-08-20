@@ -2,12 +2,14 @@ package com.samuel.projeto_web.entity;
 
 import com.samuel.projeto_web.dto.ProfileDTO;
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
 @Entity
 @Table(name = "SM_PROFILE")
+@Builder
 public class ProfileEntity {
 
     @Id
@@ -19,10 +21,6 @@ public class ProfileEntity {
 
     public ProfileEntity(){
 
-    }
-
-    public ProfileEntity(ProfileDTO profileDTO) {
-        BeanUtils.copyProperties(profileDTO, this);
     }
 
     public Long getId() {

@@ -3,12 +3,14 @@ package com.samuel.projeto_web.entity;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.samuel.projeto_web.dto.UserDTO;
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
 @Entity
 @Table(name = "SM_USER")
+@Builder
 public class UserEntity {
 
     @Id
@@ -31,9 +33,9 @@ public class UserEntity {
 
     }
 
-    public UserEntity(UserDTO userDTO) {
-        BeanUtils.copyProperties(userDTO, this);
-    }
+//    public UserEntity(UserDTO userDTO) {
+//        BeanUtils.copyProperties(userDTO, this);
+//    }
 
     public Long getId() {
         return id;

@@ -2,7 +2,10 @@ package com.samuel.projeto_web.entity;
 
 
 import com.samuel.projeto_web.dto.ProfileUserDTO;
+import com.samuel.projeto_web.mapper.ProfileMapper;
+import com.samuel.projeto_web.mapper.UserMapper;
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.beans.BeanUtils;
 
 import java.security.PublicKey;
@@ -10,6 +13,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "SM_PROFILE_USER")
+@Builder
 public class ProfileUserEntity {
 
     @Id
@@ -36,8 +40,8 @@ public class ProfileUserEntity {
 
     public ProfileUserEntity(ProfileUserDTO profileUserDTO) {
         BeanUtils.copyProperties(profileUserDTO, this);
-        this.user = profileUserDTO.getUserDTO() != null ? new UserEntity(profileUserDTO.getUserDTO()) : null;
-        this.profile = profileUserDTO.getProfileDTO() != null ? new ProfileEntity(profileUserDTO.getProfileDTO()) : null;
+        this.user = profileUserDTO.getUserDTO() != null ? UserMapper.dtoForEntity(profileUserDTO.getUserDTO()) : null;
+        this.profile = profileUserDTO.getProfileDTO() != null ? ProfileMapper.dtoForEntity(profileUserDTO.getProfileDTO()) : null;
     }
 
     public Long getId() {

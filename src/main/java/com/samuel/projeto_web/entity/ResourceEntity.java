@@ -2,12 +2,14 @@ package com.samuel.projeto_web.entity;
 
 import com.samuel.projeto_web.dto.ResourceDTO;
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
 @Entity
 @Table(name = "SM_RESOURCE")
+@Builder
 public class ResourceEntity {
 
     @Id
@@ -22,10 +24,6 @@ public class ResourceEntity {
 
     public ResourceEntity() {
 
-    }
-
-    public ResourceEntity(ResourceDTO resourceDTO) {
-        BeanUtils.copyProperties(resourceDTO, this);
     }
 
     public ResourceEntity(Long id, String name, String key) {

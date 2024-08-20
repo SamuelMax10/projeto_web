@@ -2,7 +2,6 @@ package com.samuel.projeto_web.controller;
 
 import com.samuel.projeto_web.dto.UserDTO;
 import com.samuel.projeto_web.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +11,9 @@ import java.util.List;
 @RequestMapping(value = "/users")
 public class UserController {
 
-
     private UserService userService;
 
-    private UserController(UserService userService){
+    private UserController(UserService userService) {
         this.userService = userService;
     }
 
