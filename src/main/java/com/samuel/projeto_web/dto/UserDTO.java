@@ -20,10 +20,6 @@ public class UserDTO {
     private String password;
 
     private String email;
-
-//    public UserDTO(UserEntity user) {
-//        BeanUtils.copyProperties(user, this);
-//    }
 }
 
 

@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 
 import java.security.PublicKey;
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 @Table(name = "SM_PROFILE_USER")

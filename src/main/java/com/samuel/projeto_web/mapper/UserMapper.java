@@ -6,7 +6,7 @@ import com.samuel.projeto_web.entity.UserEntity;
 public class UserMapper {
 
     public static UserEntity dtoForEntity(UserDTO userDTO) {
-        return UserEntity.builder().id(userDTO.getId()).login(userDTO.getLogin()).email(userDTO.getEmail()).name(userDTO.getName()).build();
+        return UserEntity.builder().id(userDTO.getId()).login(userDTO.getLogin()).password(userDTO.getPassword()).email(userDTO.getEmail()).name(userDTO.getName()).build();
     }
 
     public static UserDTO entityForDto(UserEntity userEntity) {

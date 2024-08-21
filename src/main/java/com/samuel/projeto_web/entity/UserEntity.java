@@ -1,10 +1,7 @@
 package com.samuel.projeto_web.entity;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import com.samuel.projeto_web.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.Builder;
-import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
@@ -14,7 +11,7 @@ import java.util.Objects;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -33,9 +30,14 @@ public class UserEntity {
 
     }
 
-//    public UserEntity(UserDTO userDTO) {
-//        BeanUtils.copyProperties(userDTO, this);
-//    }
+    public UserEntity(Long id, String name, String login,String password, String email) {
+        this.id = id;
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+
+    }
 
     public Long getId() {
         return id;
